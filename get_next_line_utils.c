@@ -27,7 +27,34 @@ int ft_strchr(char *box, int the_newline_value)
 char	*ft_substr(char *box, unsigned int i, size_t len)
 {
 	char	*str;
-	size_t	stlen;
+	size_t	stlen = 0;
+	size_t	j;
+
+	if (!box)
+		return(NULL);
+	j = 0;
+	stlen = ft_strlen(box);
+	// while(box[stlen] != '\n')
+	// 	stlen++;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < len && len > 1)
+		str[j++] = box[i++];
+	str[j] = '\0';
+	if (!str)
+	{
+		free(box);
+		free(str);
+		return (NULL);
+	}
+	return (str);
+}
+
+char	*ft_substr_box(char *box, unsigned int i, size_t len)
+{
+	char	*str;
+	size_t	stlen = 0;
 	size_t	j;
 
 	if (!box)
@@ -37,16 +64,18 @@ char	*ft_substr(char *box, unsigned int i, size_t len)
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	while (i < stlen && len > 1)
+	while (i < len && len > 1)
 		str[j++] = box[i++];
 	str[j] = '\0';
-	if (!str[0])
+	if (!str)
 	{
 		free(str);
+		free(box);
 		return (NULL);
 	}
-	return (str);
+	return (free(box), str);
 }
+
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -31,5 +31,6 @@ size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 void	*ft_calloc(size_t c, size_t s);
 void	ft_bzero(void *s, size_t n);
+char	*ft_substr_box(char *box, unsigned int i, size_t len);
 
 #endif

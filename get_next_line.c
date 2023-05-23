@@ -77,11 +77,11 @@ char	*refrash(char *box)
 		return (NULL);
 	while (box[i])
 	{
-		if (box[i] == '\n')
+		if (box[i] == '\0' || box[i] == '\n')
 		{
 			len = ft_strlen(box);
-			sec_box = ft_substr(box, i + 1, len);
-			free(box);
+			sec_box = ft_substr_box(box, i + 1, len);
+			printf("%ld\n", len);
 			return (sec_box);
 		}
 		i++;
@@ -97,9 +97,6 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > 2147483647)
 		return (NULL);
-	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buf)
-		return (NULL);
 	box = readline(box, fd);
 	if (!box)
 		return (NULL);
@@ -110,7 +107,7 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
-/*
+
 int main(void)
 {	
 	// int fd = 2;
@@ -121,16 +118,26 @@ int main(void)
   		exit(EXIT_FAILURE);
 	}
 	char *line = get_next_line(fd);
+	// printf("%s", line);
+	line = get_next_line(fd);
+	// printf("%s", line);
+	line = get_next_line(fd);
+	// printf("%s", line);
 	// line = get_next_line(fd);
-		printf("%s ", line);
+	// printf("%s", line);
+		// free(line);
+		// line = get_next_line(fd);
+		
+		// line = get_next_line(fd);
+		// printf("%s", line);
 	int i = 1;
 	// while(line)
 	// {
 	// 	// printf("%d line :)", i);
+	// 	printf("%s ", line);
 	// 	free(line);
 	// 	line = get_next_line(fd);
-	// 	i++;
+	// 	// i++;
 	// }
 	free(line);
 }
-*/
