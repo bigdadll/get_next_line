@@ -81,7 +81,6 @@ char	*refrash(char *box)
 		{
 			len = ft_strlen(box);
 			sec_box = ft_substr_box(box, i + 1, len);
-			printf("%ld\n", len);
 			return (sec_box);
 		}
 		i++;
@@ -118,11 +117,15 @@ int main(void)
   		exit(EXIT_FAILURE);
 	}
 	char *line = get_next_line(fd);
-	// printf("%s", line);
+	printf("%s", line);
+		free(line);
+
 	line = get_next_line(fd);
-	// printf("%s", line);
+	printf("%s", line);
+		free(line);
+
 	line = get_next_line(fd);
-	// printf("%s", line);
+	printf("%s", line);
 	// line = get_next_line(fd);
 	// printf("%s", line);
 		// free(line);

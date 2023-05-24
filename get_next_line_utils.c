@@ -44,7 +44,6 @@ char	*ft_substr(char *box, unsigned int i, size_t len)
 	str[j] = '\0';
 	if (!str)
 	{
-		free(box);
 		free(str);
 		return (NULL);
 	}
