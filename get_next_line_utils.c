@@ -12,9 +12,9 @@
 
 #include "get_next_line.h"
 
-int ft_strchr(char *box, int the_newline_value)
+int	ft_strchr(char *box, int the_newline_value)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (box[i] && box[i] != the_newline_value)
@@ -24,40 +24,15 @@ int ft_strchr(char *box, int the_newline_value)
 	return (1);
 }
 
-char	*ft_substr(char *box, unsigned int i, size_t len)
-{
-	char	*str;
-	size_t	stlen = 0;
-	size_t	j;
-
-	if (!box)
-		return(NULL);
-	j = 0;
-	stlen = ft_strlen(box);
-	// while(box[stlen] != '\n')
-	// 	stlen++;
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	while (i < len && len > 1)
-		str[j++] = box[i++];
-	str[j] = '\0';
-	if (!str)
-	{
-		free(str);
-		return (NULL);
-	}
-	return (str);
-}
-
 char	*ft_substr_box(char *box, unsigned int i, size_t len)
 {
 	char	*str;
-	size_t	stlen = 0;
+	size_t	stlen;
 	size_t	j;
 
+	stlen = 0;
 	if (!box)
-		return(NULL);
+		return (NULL);
 	j = 0;
 	stlen = ft_strlen(box);
 	str = (char *)malloc((len + 1) * sizeof(char));
@@ -72,9 +47,8 @@ char	*ft_substr_box(char *box, unsigned int i, size_t len)
 		free(box);
 		return (NULL);
 	}
-	return (free(box), str);
+	return (str);
 }
-
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -88,20 +62,6 @@ void	ft_bzero(void *s, size_t n)
 		c[i] = '\0';
 		i++;
 	}
-}
-
-void	*ft_calloc(size_t c, size_t s)
-{
-	void	*p;
-
-	p = malloc(c * s);
-	if (!p)
-	{
-		free(p);
-		return (NULL);
-	}
-	ft_bzero(p, c * s);
-	return (p);
 }
 
 char	*ft_str_init(void)

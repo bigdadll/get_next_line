@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -24,12 +23,10 @@
 #  define BUFFER_SIZE 42
 # endif
 
-int     ft_strchr(char *box, int the_newline_value);
-char	*ft_substr(char *box, unsigned int i, size_t len);
+int		ft_strchr(char *box, int the_newline_value);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
-void	*ft_calloc(size_t c, size_t s);
 void	ft_bzero(void *s, size_t n);
 char	*ft_substr_box(char *box, unsigned int i, size_t len);
 

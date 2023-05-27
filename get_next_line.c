@@ -22,11 +22,11 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*readline(char	*box,  int fd)
+char	*readline(char	*box, int fd)
 {
-	int	r;
-	char *buff
-	
+	int		r;
+	char	*buff;
+
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	r = 1;
 	while (r > 0)
@@ -58,18 +58,17 @@ char	*get_line(char *box)
 	{
 		if (box[i] == '\n')
 		{
-			f = ft_substr(box, 0, i + 1);
+			f = ft_substr_box(box, 0, i + 1);
 			return (f);
 		}
 		i++;
 	}
 	return (box);
-	
 }
 
 char	*refrash(char *box)
 {
-	int 	i;
+	int		i;
 	char	*sec_box;
 	size_t	len;
 
@@ -88,9 +87,7 @@ char	*refrash(char *box)
 	}
 	return (NULL);
 }
-/*Here is the main method for the get next line where it will cheack if the 
-.txt file have some value or no and the buffer size must be grater than 0 and less 
-then the max int value, */
+
 char	*get_next_line(int fd)
 {
 	static char	*box;
@@ -109,7 +106,6 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
-
 int main(void)
 {	
 	int fd = open("trytext1.txt", O_RDONLY);
@@ -121,10 +117,12 @@ int main(void)
 	char *line = get_next_line(fd);
 	printf("%s", line);
 		free(line);
+
 	line = get_next_line(fd);
 	printf("%s", line);
 		free(line);
+
 	line = get_next_line(fd);
 	printf("%s", line);
-		free(line);
+	free(line);
 }
